@@ -715,6 +715,7 @@ nlu:
 - regex: episode_number
   examples: |
     - (?<=episode\\s)\\d+(?=\\s|$)
+    - (?<=\\s)[^\\s]+(?=\\episode\\s|$)
 - regex: helpRequest
   examples: |
     - help
@@ -805,9 +806,10 @@ nlu:
     - (?<=put\\s).*?(?=\\s(on the)|(in the))
     - (?<=throw\\s).*?(?=\\s(on the)|(in the))
     - (?<=watch\\s).*?(?=\\s(on the)|(in the))
-- regex: season
+- regex: season_number
   examples: |
     - (?<=season\\s)\\d+(?=\\s|$)
+    - (?<=\\s)[^\\s]+(?=\\season\\s|$)
 - regex: timeModifier
   examples: |
     - new
