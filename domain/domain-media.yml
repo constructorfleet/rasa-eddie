@@ -80,8 +80,8 @@ responses:
     - text: "Here's what I found:"
   utter_playMedia:
     - text: Ok, {request} is now playing on the {Devices}
-    - text: '{request} coming right up.'
-    - text: You got it.
+    - text: '{request} coming right up on {Devices}.'
+    - text: '{request} on {Devices} - You got it.'
     - text: Now screening on the {Devices}, {request}
 session_config:
   session_expiration_time: 60
