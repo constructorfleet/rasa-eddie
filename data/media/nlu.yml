@@ -311,6 +311,15 @@ nlu:
     - [play]{"entity": "controls", "value": "control.Play"} [300](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [the one](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [put]{"entity": "controls", "value": "control.Play"} [a Christmas story](request) in the master [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
+    - [play](controls) [season](type) [3](season_number) [episode](type) [10](episode_number) of [grimm](request) in the [living room](Devices)
+    - [play](controls) [season](type) [5](season_number) [episode](type) [1](episode_number) of [archer](request) in the [living room](Devices)
+    - [put](controls) [season](type) [5](season_number) [episode](type) [5](episode_number) of [face off](request) in the [game room](Devices)
+    - [throw](controls) the [second](season_number) [season](type) of [archer](request) on the [living room tv](Devices)
+    - [throw](controls) the [new](mod) [episode](type) of [archer](request) on the [living room tv](Devices)
+    - [throw](controls) the [first](season_number) [season](type) of [south park](request) on the [living room tv](Devices)
+    - [play](controls) the [second](episode_number) [episode](type) of the [first](season_number) [season](type) of [dirk gently](request) on the [game room tv](Devices)
+    - [watch](controls) the [third](episode_number) [episode](type) of the [fifth](season_number) [season](type) of [dirk gently](request) on the [bedroom tv](Devices)
+    - [watch](controls) [season](type) [6](season_number) [episode](type) [1](episode_number) of [jack reacher](request) on in the [game room](Devices)
 - intent: fetch.Media
   examples: |
     - [download](controls) [Season](type) [1](season_number) [Episode](type) [1](episode_number) of  [Lost In Space](request) [2018](year)
