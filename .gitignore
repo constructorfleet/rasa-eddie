@@ -20,5 +20,5 @@ events.*
 terms
 docker-local
 .pytype/
-/actions/media/plex/main.py
+/main.py
 .rasa/
