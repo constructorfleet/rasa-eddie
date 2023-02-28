@@ -145,7 +145,7 @@ nlu:
     - [rewind]{"entity": "controls", "value": "control.Reverse"} the [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
     - [skip](controls) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - set the [volume](controls) to [24](percentage)
-    - turn the volume down
+    - turn the [volume](controls) down
 - intent: fetchInfo.Media
   examples: |
     - [what's](infoRequests) [on deck](topic)
@@ -198,7 +198,7 @@ nlu:
     - [Play](controls) [Cowboy Bebop](request) [episode](type) [3](episode_number) on [my tv](Devices)
     - [Play](controls) [Cowboy Bebop](request) [episode](type) [3](episode_number) on [MiBox](Devices)
     - [play](controls) [into the badlands](request) [season](type) [3](season_number) on the [bar tv](Devices)
-    - [play](controls) [fast five](request)
+    - [play](controls) [the fast five](request)
     - [play](controls) [humans](request) the [show](type)
     - [play](controls) [Westworld](request) on [bedroom TV](Devices)
     - [play](controls) [Black Betty](request) by [Mountain](music-artist)
@@ -223,7 +223,7 @@ nlu:
     - [play](controls) the [second](season_number) [season](type) of [Orange Is The New Black](request)
     - [play](controls) [Law & Order Special Victims Unit](request) [season](type) [8](season_number) [episode](type) [22](episode_number) on [Xbox One](Devices)
     - [play](controls) [The Thunder Rolls](request) by [All That Remains](music-artist)
-    - [i want to watch](controls) the [second](number) [season](type) of [Scrubs](request)
+    - [i want to watch](controls) the [second](season_number) [season](type) of [Scrubs](request)
     - [turn on](controls) [Batman Begins](request)
     - [play](controls) [Ballers](request) [season](type) [2](season_number) [episode](type) [5](episode_number)
     - [play](controls) [season](type) [1](season_number) [episode](type) [4](episode_number) of [Breaking Bad](request)
@@ -239,7 +239,7 @@ nlu:
     - [Throw on](controls) [the latest](mod) [episode](type) of [This Is Us](request)
     - [play](controls) [The Slim Shady LP](request) [track](type) [6](number)
     - [play](controls) [Channel Zero](request)
-    - [play a random](controls) [episode](type) of [Family Guy](request)
+    - [play](controls) a [random](mod) [episode](type) of [Family Guy](request)
     - [play](controls) [Happy](request)! from [45 minutes](duration)
     - [turn on](controls) a [new](mod) [movie](type)
     - [play](controls) [Killing Me Softly](request) [by](last-name) [The Fugees](music-artist)
@@ -251,29 +251,27 @@ nlu:
     - [Throw](controls) [zoolander](request) on in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [play](controls) [all dogs go to heaven](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [put](controls) [all dogs go to heavy](request) on in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [o'brogher where art thou](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
+    - [play]{"entity": "controls", "value": "control.Play"} [o'brother where art thou](request) on the [game room television]{"entity": "Devices", "value": "game_room_tv"}
     - [show]{"entity": "controls", "value": "playMedia.video"} [ground hog day](request) on the [living room apple tv](Devices)
     - [play]{"entity": "controls", "value": "control.Play"} [world war zimmerman](request) on the [game room apple tv](Devices)
     - [watch]{"entity": "controls", "value": "playMedia.video"} [task master](request) [season]{"entity": "type", "value": "show.season"} [2](season_number) on the [game room apple tv](Devices)
     - [play](controls) [oov](request) in the [game room](Devices)
-    - [put](controls) the [new](mod) [episode](type) of [oov](request) on the [game root apple tc](Devices)
+    - [put](controls) the [new](mod) [episode](type) of [oov](request) on the [game root apple tv](Devices)
     - [watch]{"entity": "controls", "value": "playMedia.video"} [rin tin tin](request) on [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [reacher](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [Play]{"entity": "controls", "value": "control.Play"} [reacher](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [Play](controls) [your](request) highness in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [Play](controls) [your highness](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [Watch]{"entity": "controls", "value": "playMedia.video"} [South Park](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [Play]{"entity": "controls", "value": "control.Play"} [no country for old men](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} television
-    - [play]{"entity": "controls", "value": "control.Play"} the [last unicorn](request) on the [living room]{"entity": "Devices", "value": "living_room_tv"} [televison](type)
+    - [Play]{"entity": "controls", "value": "control.Play"} [no country for old men](request) on the [game room television]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the last unicorn](request) on the [living room television]{"entity": "Devices", "value": "living_room_tv"}
     - [throw]{"entity": "controls", "value": "fetchMedia"} on [the ninja turtles](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [the man in the iron mask](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
+    - [play]{"entity": "controls", "value": "control.Play"} [the man in the iron mask](request) on the [game room television]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [Wayne's world](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [Watch]{"entity": "controls", "value": "playMedia.video"} [sand sharks](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [Play]{"entity": "controls", "value": "control.Play"} [sand sharks](request) on the [living room]{"entity": "Devices", "value": "living_room_tv"} [television](type)
-    - Watch _oov_ in the living room
-    - Watch _oov_ on the game room television
-    - Put _oov_ _oov_ in the game room
-    - [Put](controls) _oov_ _oov_ _oov_ in the [living room](Devices)
-    - [Play](controls) _oov_ _oov_ _oov_ _oov_ _oov_ on the [game room television](Devices)
+    - [Play]{"entity": "controls", "value": "control.Play"} [sand sharks](request) on the [living room television]{"entity": "Devices", "value": "living_room_tv"}
+    - [Put]{"entity": "controls", "value": "control.Play"} [_oov_ _oov_](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Put](controls) [_oov_ _oov_ _oov_](request) in the [living room](Devices)
+    - [Play](controls) _oov_ _oov_ _oov_ _oov_ _oov_](request) on the [game room television](Devices)
     - [grab]{"entity": "controls", "value": "fetchMedia"} [ant man 3](request)
     - [play]{"entity": "controls", "value": "control.Play"} [ant man](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [your honor](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
@@ -281,17 +279,17 @@ nlu:
     - [put]{"entity": "controls", "value": "control.Play"} [captain america](request) on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
     - [throw]{"entity": "controls", "value": "fetchMedia"} [last of us](request) on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
     - [watch]{"entity": "controls", "value": "playMedia.video"} [infinity wars](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
-    - [put]{"entity": "controls", "value": "control.Play"} infinity wars in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} [infinity wars](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [show]{"entity": "controls", "value": "playMedia.video"} [infinity wars](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [put]{"entity": "controls", "value": "control.Play"} [archer](request) [season]{"entity": "type", "value": "show.season"} [2](season_number) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
     - [put]{"entity": "controls", "value": "control.Play"} [black widow](request) on in the [bedroom](Devices)
     - [play]{"entity": "controls", "value": "control.Play"} [guardians](request) of the galaxy on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} the [new guy](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the new guy](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [South Park](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} something else in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [something else](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [Play]{"entity": "controls", "value": "control.Play"} [archer](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [transformers](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} the [Incredible Hulk](request) in the [bedroom](Devices)
+    - [play]{"entity": "controls", "value": "control.Play"} [the Incredible Hulk](request) in the [bedroom](Devices)
     - [play]{"entity": "controls", "value": "control.Play"} [dirk gently](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) [episode]{"entity": "type", "value": "show.episode"} [2](episode_number) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} some weird [movie](type) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [Watch](controls) [space ghost](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) in the [bedroom](Devices)
@@ -300,20 +298,19 @@ nlu:
     - [play]{"entity": "controls", "value": "control.Play"} [some weird movie name](request) on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [the girl with all the gifts](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [Star Trek into darkness](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} [Harry Potter](last-name) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} [Harry Potter](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [I want to watch]{"entity": "controls", "value": "playMedia.video"} [jaws 4](request) in the [bedroom](Devices)
     - [put]{"entity": "controls", "value": "control.Play"} [South Park](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [mortal combat](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [gremlins](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [face off](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) [episode]{"entity": "type", "value": "show.episode"} [2](episode_number) on the [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} the [one](Devices) eyed [one](Devices) horned [movie](type) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} the [3 musketeers](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the 3 musketeers](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [season]{"entity": "type", "value": "show.season"} [4](season_number) of [breaking bad](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [cartman](request) sucks in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [south park](request) [margaritaville](Devices) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [cartman sucks](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [south park](request) [margaritaville](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [300](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [the one](Devices) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
-    - [put]{"entity": "controls", "value": "control.Play"} a [Christmas story](request) in the master [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the one](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} [a Christmas story](request) in the master [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
 - intent: fetch.Media
   examples: |
     - [download](controls) [Season](type) [1](season_number) [Episode](type) [1](episode_number) of  [Lost In Space](request) [2018](year)
@@ -333,21 +330,21 @@ nlu:
     - [download](controls) [the new](mod) [Machine Head](music-artist) [album](type)
     - [download](controls) the [first](season_number) [season](type) of [Lost In Space](request) [2018](year)
     - [download](controls) [the new](mod) [Eminem](music-artist) [album](type)
-    - [Download](controls) the [little rascals](request)
+    - [Download](controls) [the little rascals](request)
     - [Grab]{"entity": "controls", "value": "fetchMedia"} [the new]{"entity": "mod", "value": "recent"} [terminator](request)
     - [grab]{"entity": "controls", "value": "fetchMedia"} the [new]{"entity": "mod", "value": "recent"} [harry potter](request)
-    - [Download]{"entity": "controls", "value": "fetchMedia"} a [knigh's tale](request)
+    - [Download]{"entity": "controls", "value": "fetchMedia"} [a knight's tale](request)
     - [grab]{"entity": "controls", "value": "fetchMedia"} the [new]{"entity": "mod", "value": "recent"} [shark'nado](request)
     - [download]{"entity": "controls", "value": "fetchMedia"} [ant man 3](request)
     - [grab]{"entity": "controls", "value": "fetchMedia"} [mayor of kingstown](request)
     - [grab]{"entity": "controls", "value": "fetchMedia"} [south park](request)
     - [grab]{"entity": "controls", "value": "fetchMedia"} [zoolander](request)
-    - [download]{"entity": "controls", "value": "fetchMedia"} the tick [season]{"entity": "type", "value": "show.season"} [2](season_number)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [the tick](request) [season]{"entity": "type", "value": "show.season"} [2](season_number)
     - [grab]{"entity": "controls", "value": "fetchMedia"} [the game of thrones](request)
     - [download]{"entity": "controls", "value": "fetchMedia"} [season]{"entity": "type", "value": "show.season"} [3](season_number) of [Gilmore girls](request)
     - [download]{"entity": "controls", "value": "fetchMedia"} [Star Trek wrath of khan](request)
-    - [download]{"entity": "controls", "value": "fetchMedia"} the [man in the iron mask](request)
-    - [download]{"entity": "controls", "value": "fetchMedia"} the [men in black](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [the man in the iron mask](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [the men in black](request)
 - synonym: playMedia.unwatched
   examples: |
     - haven't watched
