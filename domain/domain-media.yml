@@ -34,7 +34,6 @@ entities:
   - time-period
   - playMedia-followup
   - fetchInfo-followup
-  - season
   - episode_number
   - Media-multiple
   - movie
