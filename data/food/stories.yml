@@ -1,0 +1,17 @@
+version: '3.1'
+
+stories:
+- story: Recommend Recipe
+  steps:
+    - intent: fetchInfo.Recipe
+    - slot_was_set:
+        - ingredient
+    - action: utter.Recipe
+- story: Recommend Recipe Followup
+  steps:
+    - intent: fetchInfo.Recipe
+    - action: utter_recipe_followup
+    - intent: fetchInfo.Recipe.fromIngredient
+    - slot_was_set:
+        - ingredient
+    - action: utter.Recipe

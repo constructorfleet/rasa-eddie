@@ -1,0 +1,825 @@
+version: "3.1"
+
+nlu:
+- intent: provideInfo.moviePreference
+  examples: |
+    - My favorite movie is [The Godfather](movie)
+    - My favorite movie is [The Dark Knight](movie)
+    - My favorite movie is [Sprited Away](movie)
+    - I like watching [paranormal activity](movie).
+    - I like to watch peepoo
+    - My favorite movie is [the titanic](movie)
+    - I like to watch [The Dark Knight](movie)
+    - I like to watch [Spirited Away](movie)
+    - My favorite movie is [Harry potter: goblet of fire](movie).
+    - My favorite movie is [Sandlot](movie)
+    - My favorite movie is [Spirited Away](movie)
+    - My favorite is [the Godfather](movie)
+    - My favorite move is [The Dark Knight](movie)
+    - I like [The Godfather](movie)
+    - My favorite is [John Wick](movie)
+    - My favorite movie is [John Wick](movie)
+    - I like watching [Midsommar](movie)
+    - My favorite movie is [Pineapple Express](movie)
+    - My favorite movie is [Harry Potter](movie)
+    - I like watch [The Titanic](movie)
+    - My favorite movies is [Spaceballs](movie)
+    - My favorite movie [Spaceballs](movie)
+    - My favorite movie is [Dune](movie)
+    - My favorite is [Dune](movie)!
+    - I like watching [Dune](movie)
+    - My facorite mobie is [The Kingsman](movie)
+    - [Midsommar](movie)
+    - [The Dark KNight](movie)
+    - [harry potter](movie)
+    - [dune](movie)
+    - [titanic](movie)
+    - My favorite movie is [Journey to the Center of The Earth](movie)
+    - I like watching [Doom](movie)
+    - I like watching [Star Wars](movie)
+    - My favorite movie is [Spaceballs](movie)
+    - Pulp [Fiction](movie)
+    - [12 Angry Men](movie)
+    - [My Neighbor Totoro](movie)
+    - [Star Wars](movie)
+    - [The Titanic](movie)
+    - My favorite movie is [Journey to the Center of the Earth](movie)
+    - My favorite movie is [The Titanic](movie)
+    - I like [Star Wars](movie)
+    - My favorite movie is [James Bond: Die Another Die](movie)
+    - my favorite movie is [the lion king](movie)
+    - My favorite movie is [iCarly](movie)
+    - My favorite movie is [The Sound of Music](movie)
+    - My favorite movies is [Swiss Army Man](movie)
+    - [Shang-chi](movie)
+    - My favorite movie is [Shang-Chi](movie)
+    - My favorite is [James Bond](movie)
+    - The best movie is [Clifford: The Big Red Dog](movie)
+    - I like watching [Ron's Gone Wrong](movie)
+    - I like watching [House of Gucci](movie)
+    - My favorite movie is [King Richard](movie)
+    - My favorite movie is [Ghostbusters: Afterlife](movie)
+    - My favorite movie is [Eternals](movie)
+    - My favorite movie is [Holes](movie)
+    - I like watching [The French Dispatch](movie)
+    - The best movie is [Red Notice](movie)
+    - My favorite movie is [Spencer](movie)
+    - My favorite movie is [Private Watch Party](movie)
+    - I like to watch [Private Watch Party](movie)
+    - My favorite movie is [the godfather](movie)
+    - Show me movies related to [The Godfather](movie)
+    - My favorite movie is [Land Before Time](movie)
+    - My favorite movie is [The Shrek](movie)
+    - My favorite movie is [Shrek](movie)
+    - I like to watch [Shrek](movie)
+    - My favorite my is [The Life of Pie](movie)
+    - My favorite movie is [Life of Pi](movie)
+    - best [Action](genre) movies
+    - I really like [marvel](movie) movies, what should I watch
+    - I want a movie similar to [The Haunted House](movie)
+    - The best movie is [Ironman](movie)
+    - My favorite movie is [Ironman](movie)
+    - [Journey to The Center of The Earth](movie)
+    - [Ironman](movie)
+    - [Scary Movie: 4](movie)
+    - [Schindlers List](movie)
+    - [Sandlot](movie)
+    - My favorite movie is [Oddball](movie)
+    - [Venom](movie)
+    - venom
+    - My favorite movie is [Venom](movie)
+    - [Spiderman](movie)
+    - My favorite movie is [The titanic](movie)
+    - [Brother Bear](movie)
+    - [Toy Story](movie)
+    - Which one should I watch?
+    - [avatar](movie)
+    - show me [superman](movie)
+    - hey, i am interested in watching some [action](genre) movies, but I am unable to decide between [batman returns](movie) or [iron man part 3](movie). Can you suggest which is better according to viewer reviews?
+    - i want to watch [batman](movie)
+    - can you tell show me [iron man](movie) movies list
+    - i like [captain america](movie) movies
+    - my favorite movie is [lord of the rings](movie)
+    - recommend movies like [troy](movie)
+    - [troy](movie)
+    - recommend movies like [Avatar](movie)
+    - [Ironan](movie), it is my favorite
+    - [Ironman](movie), it's my favorite
+- intent: control.Media
+  examples: |
+    - [seek](controls) to [1 hour 10 minutes](duration)
+    - [pause](controls) playback
+    - [jump ahead](controls) [45 seconds](duration)
+    - [pause](controls) the [movie](type)
+    - [it's too loud](controls)
+    - [turn it up](controls)
+    - [pick a different](controls) [DVR](DeviceType)
+    - [enable](controls) [Spanish](language) [subtitles](type)
+    - [set the volume](controls) to [50%](percentage)
+    - [pause](controls) playback on the [Living Room TV](Devices)
+    - [change](controls) [player](DeviceType) to [Basement TV](Devices)
+    - [set the subtitles to](controls) [English](language)
+    - [change](controls) [Player](DeviceType)
+    - [stop](controls) playback
+    - [change](controls) [player](DeviceType) to [basement tv](Devices)
+    - [pause](controls) the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [continue](controls) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [resume](controls)
+    - [stop]{"entity": "controls", "value": "control.Stop"}
+    - [pause]{"entity": "controls", "value": "control.Pause"}
+    - [stop]{"entity": "controls", "value": "control.Stop"} the [game room television](Devices)
+    - [pause]{"entity": "controls", "value": "control.Pause"} in the [living room](Devices)
+    - [stop]{"entity": "controls", "value": "control.Stop"} the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [pause]{"entity": "controls", "value": "control.Pause"} the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [start]{"entity": "controls", "value": "control.Play"} the [bedroom tv](Devices)
+    - [exit](controls) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [turn off](controls) the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [rewind](controls) the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [rewind](controls)
+    - [skip](controls)
+    - [stop]{"entity": "controls", "value": "control.Stop"} [bedroom](Devices)
+    - [resume](controls) [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [stop]{"entity": "controls", "value": "control.Stop"} the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [mute]{"entity": "controls", "value": "volume.mute"}
+    - [fast forward](controls) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [rewind]{"entity": "controls", "value": "control.Reverse"} the [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
+    - [skip](controls) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - set the [volume](controls) to [24](percentage)
+    - turn the volume down
+- intent: fetchInfo.Media
+  examples: |
+    - [what's](infoRequests) [on deck](topic)
+    - [What](infoRequests) [new](mod) [movies](type) do [I have](topic)?
+    - [What's playing](infoRequests)?
+    - [What's on](infoRequests) [tv](type) [tonight](date)?
+    - [What's on](infoRequests) [tv](type) [tomorrow](date) [afternoon](time-period)?
+    - [what](infoRequests) [new](mod) [movies](type) [I have](topic)
+    - [When is](infoRequests) [Grey's Anatomy](request) on?
+    - [what's](infoRequests) [on deck](topic)?
+    - [what](infoRequests) [new](mod) [shows](type) [are in the library](topic)?
+    - [What is playing]{"entity": "infoRequests", "value": "nowPlaying"}?
+    - [what is](infoRequests) [new](mod)?
+    - [what is playing]{"entity": "infoRequests", "value": "nowPlaying"} in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [what is playing]{"entity": "infoRequests", "value": "nowPlaying"}?
+    - [what is](infoRequests) [new]{"entity": "infoRequests", "value": "recent"}
+    - [who is](infoRequests) in [this](topic) [episode]{"entity": "type", "value": "show.episode"}
+    - [who](infoRequests) is in [this](topic) [movie](type)
+    - [is that](infoRequests) [Burt](given-name) [renolds](last-name)
+    - [is that](infoRequests) [Chris](given-name) [Evans](last-name)?
+    - [what are](infoRequests) the [new]{"entity": "mod", "value": "recent"} [movies]{"entity": "type", "value": "movie"} [out](topic)?
+    - [who](infoRequests) [stars](topic) in the [blob](request)
+    - [who is](infoRequests) the [director](topic) of the [matrix](request)
+    - [who](infoRequests) is the [director](topic)
+    - [who](infoRequests) is in this [scene](topic)?
+- intent: fetchInfo.topMedia
+  examples: |
+    - show me [the top](mod) [10](number)
+    - Show me [the top](mod) [10](number) [movies](type)
+    - Show me [the top](mod) [20](number) [movies](type)
+    - Whats [the top](mod) [10](number) [movies](type)
+    - whats [the top](mod) [15](number) [movies](type)
+    - whats [the top](mod) [72.2](number) [movies](type)
+    - Show me [top](mod) [30](number) [movies](type)
+    - what are the [highest rated](mod) [movies](type)
+    - What are [the to](mod) [10](number) [movies](type)
+    - what [movies](type) are the [most watched](mod)
+    - shxw tbe tpo [38](number) [movies](type)
+    - what are [the top](mod) [15](number) [movies](type)
+    - show [the top](mod) [100](number) [movies](type)
+    - Top [20](number) [movies](type)
+    - Show me [the top](mod) [50](number) [movies](type)
+    - Show [Top](mod) [20](number) [movies](type)
+    - What are your [top](mod) [ten](number) [movies](type)?
+    - What are your [favorite](mod) [movies](type)?
+    - plz show me [top](mod) [ten](number) [movies](type)
+    - [top](mod) [10](number) [action](genre) [movies](type)
+- intent: playMedia
+  examples: |
+    - [Play](controls) [Cowboy Bebop](request) [episode](type) [3](number) on [my tv](Devices)
+    - [Play](controls) [Cowboy Bebop](request) [episode](type) [3](number) on [MiBox](Devices)
+    - [play](controls) [into the badlands](request) [season](type) [3](number) on the [bar tv](Devices)
+    - [play](controls) [fast five](request)
+    - [play](controls) [humans](request) the [show](type)
+    - [play](controls) [Westworld](request) on [bedroom TV](Devices)
+    - [play](controls) [Black Betty](request) by [Mountain](music-artist)
+    - [play](controls) [DJ Khaled](request) on my [family room speaker](Devices)
+    - [play](controls) [batman](request) [begins](year) in the Sewing Room
+    - [Play](controls) [The Office](request)
+    - [play](controls) a [Bill](given-name) [Murray](last-name) [movie](type)
+    - [play](controls) [The ABC Murders](request) [track](type) [1](number)
+    - [play](controls) [Ant-Man](request) on [Living Room TV](Devices)
+    - [Play](controls) [Alice](request)
+    - [play](controls) [the newest](mod) [episode](type) of [Desperate Housewives](request)
+    - [play](controls) [Ghostbusters](request) [1984](year)
+    - [download](controls) the [album](type) [Ride the Lightning](request) by [Metallica](music-artist)
+    - [I want to watch](controls) a [Bill](given-name) [Murray](last-name) [movie](type)
+    - [play](controls) the [movie](type) [ballerina](request) on the [living room TV](Devices)
+    - [play](controls) [law and order](request)
+    - [play](controls) a [movie](type)
+    - [play](controls) the [show](type) [Doctor Who](request) [2005](year)
+    - [play](controls) [season](type) [1](number) [episode](type) [10](number) of [Game of Thrones](request)
+    - [play](controls) [Nightwish](request) on the [kitchen speaker](Devices)
+    - [play](controls) [track](type) [three](number) on [The Eminem Show](request)
+    - [play](controls) [Batman Begins](request)
+    - [play](controls) the [second](number) [season](type) of [Orange Is The New Black](request)
+    - [play](controls) [Law & Order Special Victims Unit](request) [season](type) [8](number) [episode](type) [22](number) on [Xbox One](Devices)
+    - [play](controls) [The Thunder Rolls](request) by [All That Remains](music-artist)
+    - [i want to watch](controls) the [second](number) [season](type) of [Scrubs](request)
+    - [turn on](controls) [Batman Begins](request)
+    - [play](controls) [Ballers](request) [season](type) [2](number) [episode](type) [5](number)
+    - [download](controls) [Season](type) [1](number) [Episode](type) [1](number) of  [Lost In Space](request) [2018](year)
+    - [play](controls) [season](type) [1](number) [episode](type) [4](number) of [Breaking Bad](request)
+    - [play](controls) [track](type) [three](number) from [The Eminem Show](request)
+    - [I want to watch](controls) [Ghostbusters](request)
+    - [play](controls) a [movie](type) on the [guest room TV](Devices)
+    - [Play](controls) [blackbird](request)
+    - [play](controls) [The Cabin In The Woods](request) from [1 hour 1 minute and 22 seconds](duration)
+    - [play](controls) [The Cabin In The Woods](request) from [1 minute and 22 seconds](duration)
+    - [play](controls) [DJ Khaled](request) on [family room speaker](Devices)
+    - [play](controls) the [new](mod) [episode](type) of [Legion](request) from [1 hour and 22 minutes](duration)
+    - [I want to listen](controls) to the [first](number) [Eminem](music-artist) [album](type)
+    - [Throw on](controls) [the latest](mod) [episode](type) of [This Is Us](request)
+    - [play](controls) [The Slim Shady LP](request) [track](type) [6](number)
+    - [play](controls) [Channel Zero](request)
+    - [play a random](controls) [episode](type) of [Family Guy](request)
+    - [play](controls) [Happy](request)! from [45 minutes](duration)
+    - [turn on](controls) a [new](mod) [movie](type)
+    - [play](controls) [Killing Me Softly](request) [by](last-name) [The Fugees](music-artist)
+    - [watch](controls) a [Jonny](given-name) [Depp](last-name) [movie](type)
+    - [shuffle](controls) [Metallica](music-artist)
+    - [I feel like watching](controls) [the new](mod) [episode](type) of [The Simpsons](request)
+    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} a [movie](type)
+    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} [star wars](request)
+    - [Play]{"entity": "controls", "value": "control.Play"} [the goonies](request) in the [living room](Devices)
+    - [Download](controls) [chronicles of ridick](request)
+    - [Throw](controls) [zoolander](request) on in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play](controls) [all dogs go to heaven](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [put](controls) [all dogs go to heavy](request) on in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [o'brogher where art thou](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
+    - [show]{"entity": "controls", "value": "playMedia.video"} [ground hog day](request) on the [living room apple tv](Devices)
+    - [play]{"entity": "controls", "value": "control.Play"} [world war zimmerman](request) on the [game room apple tv](Devices)
+    - [watch]{"entity": "controls", "value": "playMedia.video"} [task master](request) [season]{"entity": "type", "value": "show.season"} [2](number) on the [game room apple tv](Devices)
+    - [play](controls) [oov](request) in the [game room](Devices)
+    - [put](controls) the [new](mod) [episode](type) of [oov](request) on the [game root apple tc](Devices)
+    - [watch]{"entity": "controls", "value": "playMedia.video"} [rin tin tin](request) on [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [reacher](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Play]{"entity": "controls", "value": "control.Play"} [reacher](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Play](controls) [your](request) highness in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [Watch]{"entity": "controls", "value": "playMedia.video"} [South Park](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Play]{"entity": "controls", "value": "control.Play"} [no country for old men](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} television
+    - [play]{"entity": "controls", "value": "control.Play"} the [last](number) [unicorn](request) on the [living room]{"entity": "Devices", "value": "living_room_tv"} [televison](type)
+    - [throw]{"entity": "controls", "value": "fetchMedia"} on [the ninja turtles](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the man in the iron mask](request) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
+    - [play]{"entity": "controls", "value": "control.Play"} [Wayne's world](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [Watch]{"entity": "controls", "value": "playMedia.video"} [sand sharks](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Play]{"entity": "controls", "value": "control.Play"} [sand sharks](request) on the [living room]{"entity": "Devices", "value": "living_room_tv"} [television](type)
+    - Watch _oov_ in the living room
+    - Watch _oov_ on the game room television
+    - Put _oov_ _oov_ in the game room
+    - [Put](controls) _oov_ _oov_ _oov_ in the [living room](Devices)
+    - [Play](controls) _oov_ _oov_ _oov_ _oov_ _oov_ on the [game room television](Devices)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} [ant man 3](request)
+    - [play]{"entity": "controls", "value": "control.Play"} ant man in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [your](request) honor in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [throw]{"entity": "controls", "value": "fetchMedia"} [transformers](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} [captain](controls) America on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [throw]{"entity": "controls", "value": "fetchMedia"} [last](number) of [us](request) on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [watch]{"entity": "controls", "value": "playMedia.video"} infinity [wars](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} infinity wars in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [show]{"entity": "controls", "value": "playMedia.video"} infinity [wars](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} archer [season]{"entity": "type", "value": "show.season"} [2](number) on the [game room]{"entity": "Devices", "value": "game_room_tv"} [television](type)
+    - [put]{"entity": "controls", "value": "control.Play"} black widow on in the [bedroom](Devices)
+    - [play]{"entity": "controls", "value": "control.Play"} [guardians](request) of the galaxy on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} the [new guy](mod) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [South Park](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} something else in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Play]{"entity": "controls", "value": "control.Play"} [archer](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [transformers](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} the [Incredible](request) [Hulk](request) in the [bedroom](Devices)
+    - [play]{"entity": "controls", "value": "control.Play"} dirk gently [season]{"entity": "type", "value": "show.season"} [3](number) [episode]{"entity": "type", "value": "show.episode"} [2](number) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} some weird [movie](type) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [Watch](controls) space ghost [season]{"entity": "type", "value": "show.season"} [3](number) in the [bedroom](Devices)
+    - [watch](controls) space ghost [season]{"entity": "type", "value": "show.season"} [3](number) in the [bedroom](Devices)
+    - [play]{"entity": "controls", "value": "control.Play"} rick and morty [season]{"entity": "type", "value": "show.season"} [2](number) [episode]{"entity": "type", "value": "show.episode"} [3](number) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [some weird movie name](request) on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [the girl with all the gifts](request) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [Star Trek](request) into darkness in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} [Harry Potter](last-name) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [I want to watch]{"entity": "controls", "value": "playMedia.video"} jaws [4](number) in the [bedroom](Devices)
+    - [put]{"entity": "controls", "value": "control.Play"} [South Park](request) [season]{"entity": "type", "value": "show.season"} [3](number) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} mortal combat in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [gremlins](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} face off [season]{"entity": "type", "value": "show.season"} [3](number) [episode]{"entity": "type", "value": "show.episode"} [2](number) on the [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} the [one](Devices) eyed [one](Devices) horned [movie](type) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} the [3](number) [musketeers](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [season]{"entity": "type", "value": "show.season"} [4](number) of breaking bad in the [living room]{"entity": "Devices", "value": "living_room_tv"}
+    - [who stars](infoRequests) in [men in black](request)
+    - [halt](controls) the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [turn on](controls) the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - skip forward on the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [cartman](request) sucks in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [south park](request) [margaritaville](Devices) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [300](number) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} the [one](Devices) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
+    - [put]{"entity": "controls", "value": "control.Play"} a Christmas [story](controls) in the master [bedroom]{"entity": "Devices", "value": "master_bedroom_tv"}
+    - [turn on](controls) the [living room tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [fast forward](controls) [10 seconds](duration)
+    - [who](infoRequests) [directs](topic) this movie
+- intent: fetch.Media
+  examples: |
+    - [fetch](controls) [Avengers: Age Of Ultron](request)
+    - [download](controls) the [first](number) [eminem](music-artist) [album](type)
+    - [download](controls) the [first](number) [episode](type) of the [second](number) [season](type) of [Family Guy](request)
+    - [download](controls) the [song](type) [Nothing Compares 2 U](request) by [Chris Cornell](music-artist)
+    - [download](controls) the [show](type) [Krypton](request)
+    - [download](controls) the [album](type) [Catharsis](request) by [Machine Head](music-artist)
+    - [download](controls) the [movie](type) [Passengers](request) [2006](year)
+    - [pirate](controls) [the latest](mod) [episode](type) of [This Is Us](request)
+    - [download](controls) [Season](type) [1](number) of  [Lost In Space](request) [2018](year)
+    - [fetch](controls) [Blazing Saddles](request)
+    - [grab](controls) [The Sorcerer's Stone](request)
+    - [snag](controls) the [second](number) [season](type) of [The Flash](request)
+    - [download](controls) the [first](number) [episode](type) of [Lost In Space](request) [2018](year)
+    - [download](controls) [the new](mod) [Machine Head](music-artist) [album](type)
+    - [download](controls) the [first](number) [season](type) of [Lost In Space](request) [2018](year)
+    - [download](controls) [the new](mod) [Eminem](music-artist) [album](type)
+    - [Download](controls) the [little rascals](request)
+    - [Grab]{"entity": "controls", "value": "fetchMedia"} [the new]{"entity": "mod", "value": "recent"} [terminator](request)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} the [new]{"entity": "mod", "value": "recent"} [harry potter](request)
+    - [Download]{"entity": "controls", "value": "fetchMedia"} a [knigh's tale](request)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} the [new]{"entity": "mod", "value": "recent"} [shark'nado](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [ant man 3](request)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} [mayor of kingstown](request)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} [south park](request)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} [zoolander](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} the tick [season]{"entity": "type", "value": "show.season"} [2](number)
+    - [grab]{"entity": "controls", "value": "fetchMedia"} [the game of thrones](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [season]{"entity": "type", "value": "show.season"} [3](number) of [Gilmore girls](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} [Star Trek wrath of khan](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} the [man in the iron mask](request)
+    - [download]{"entity": "controls", "value": "fetchMedia"} the [men in black](request)
+- synonym: playMedia.unwatched
+  examples: |
+    - haven't watched
+    - unwatched
+- synonym: playMedia.music
+  examples: |
+    - I feel like listening to
+    - I want to hear
+    - I want to listen
+    - listen to
+    - I want to listen to
+- synonym: fetchMedia
+  examples: |
+    - grab
+    - Download
+    - pirate
+    - Throw
+    - download
+    - fetch
+    - snag
+- synonym: control.Play
+  examples: |
+    - start
+    - play
+    - begin
+    - Play
+    - throw on
+    - Throw on
+    - put
+    - Put
+- synonym: control.Activate
+  examples: |
+    - turn on
+    - enable
+    - turn on
+    - activate
+- synonym: playMedia.video
+  examples: |
+    - i want to watch
+    - I want to watch
+    - show
+    - watch
+    - I feel like watching
+- synonym: playMedia.shuffle
+  examples: |
+    - randomize
+    - random
+    - shuffle
+    - play a random
+    - play random
+- synonym: device.change
+  examples: |
+    - switch
+    - change
+    - select a different
+    - use a different
+    - use a new
+    - select a new
+    - pick a new
+    - pick a different
+- synonym: subtitles.change
+  examples: |
+    - change the subtitle language
+    - subtitles
+    - set the subtitles to
+- synonym: back
+  examples: |
+    - previous
+    - skip back
+- synonym: control.Resume
+  examples: |
+    - continue
+    - resume
+- synonym: resume
+  examples: |
+    - unpause
+- synonym: volume.up
+  examples: |
+    - turn it up
+    - volume up
+    - I can't hear
+- synonym: volume.mute
+  examples: |
+    - mute
+    - volume mute
+- synonym: next
+  examples: |
+    - next chapter
+    - skip forward
+- synonym: subtitles.off
+  examples: |
+    - disable subtitles
+    - turn the subtitles off
+- synonym: subtitles.on
+  examples: |
+    - enable subtitles
+    - turn the subtitles on
+- synonym: volume.down
+  examples: |
+    - It's too loud
+    - turn it down
+    - volume down
+    - it's too loud
+- synonym: rescan
+  examples: |
+    - update files
+    - update the library
+    - update library
+    - rescan library
+    - rescan files
+    - update my library
+    - scan library
+    - scan files
+- synonym: '0'
+  examples: |
+    - the start
+    - restart
+    - the beginning
+- synonym: recent
+  examples: |
+    - just added
+    - new
+    - the latest
+    - that just aired
+    - the most recent
+    - the newest
+    - the new
+- synonym: show.season
+  examples: |
+    - show season
+    - series
+    - season
+- synonym: music.album
+  examples: |
+    - cd
+    - vinyl
+    - album
+    - record
+    - disc
+- synonym: movie
+  examples: |
+    - films
+    - film
+    - flicks
+    - movies
+    - flick
+- synonym: top
+    - the top
+    - best
+    - highest rated
+    - most watched
+- synonym: music.track
+  examples: |
+    - song
+    - Track
+    - Song
+    - track
+- synonym: music.artist
+  examples: |
+    - band
+    - composer
+    - artist
+    - group
+    - singer
+    - performer
+- synonym: show
+  examples: |
+    - shows
+    - tv shows
+- synonym: show.episode
+  examples: |
+    - show episode
+    - episode
+- synonym: Client
+  examples: |
+    - player
+    - playback device
+- synonym: Server
+  examples: |
+    - Media Server
+- synonym: DVR
+  examples: |
+    - recorder
+- synonym: nowPlaying
+  examples: |
+    - what's playing
+    - what are we watching
+    - what am I watching
+    - what is playing
+    - what is currently playing
+- synonym: airings
+  examples: |
+    - What's on
+    - What is on tv
+    - What's on TV
+    - when is
+    - when does
+- synonym: ondeck
+  examples: |
+    - on deck
+- synonym: living_room_tv
+  examples: |
+    - living room
+    - Living Room TV
+    - living room television
+    - living room TV
+    - living room apple tv
+    - living room tv
+- synonym: game_room_tv
+  examples: |
+    - game room
+    - game root apple tc
+    - game room tv
+    - game room apple tv
+    - game room television
+- synonym: control.Stop
+  examples: |
+    - quit
+    - halt
+    - stop
+    - exit
+    - close
+- synonym: control.Pause
+  examples: |
+    - pause
+    - hold
+- synonym: control.Deactivate
+  examples: |
+    - shut off
+    - turn off
+    - turn off
+    - shut down
+    - power down
+    - power off
+- synonym: control.Forward
+  examples: |
+    - jump
+    - skip
+    - seek
+    - fast forward
+    - fast forward
+    - forward
+- synonym: control.Reverse
+  examples: |
+    - rewind
+    - go back
+- synonym: director
+  examples: |
+    - directed
+    - directs
+- synonym: master_bedroom_tv
+  examples: |
+    - bedroom Apple TV
+    - bedroom television
+    - master bedfroom
+    - master bedroom apple tv
+    - master bedroom tv
+    - bedroom tv
+    - master bedroom television
+    - bedroom
+- regex: DeviceType
+  examples: |
+    - Client
+    - DVR
+    - Media Server
+    - Server
+    - playback device
+    - player
+    - recorder
+- regex: Devices
+  examples: |
+    - Chrome
+    - Chromecast
+    - Den Speaker
+    - Den TV
+    - Dining Room Speaker
+    - Dining Room TV
+    - Edge
+    - Family Room Speaker
+    - Family Room TV
+    - Firefox
+    - Game Room
+    - Game Room Apple TV
+    - Game Room TV
+    - Game Room Television
+    - Guest Bedroom
+    - Kitchen Speaker
+    - Kitchen TV
+    - Living Room
+    - Living Room Apple TV
+    - Living Room Speaker
+    - Living Room TV
+    - Living Room TV
+    - Living Room Television
+    - Mi Box
+    - My Speaker
+    - My TV
+    - Nexus Player
+    - Plex Web Chrome
+    - Pool House
+    - Raspberry Pi
+    - Rec Room
+    - Roku
+    - Shield
+    - Xbox
+    - Xbox One
+    - kitchen speaker
+- regex: controls
+  examples: |
+    - I can't hear
+    - It's too loud
+    - back
+    - change
+    - change the subtitle language
+    - continue
+    - disable subtitles
+    - enable subtitles
+    - go to
+    - jump ahead
+    - jump to
+    - mute
+    - next
+    - next chapter
+    - pause
+    - pick a different
+    - pick a new
+    - previous
+    - rescan
+    - rescan files
+    - rescan library
+    - resume
+    - scan files
+    - scan library
+    - seek
+    - select a different
+    - select a new
+    - set the subtitles to
+    - set the time to
+    - skip back
+    - skip forward
+    - stop
+    - subtitles
+    - switch
+    - turn it down
+    - turn it up
+    - turn the subtitles off
+    - turn the subtitles on
+    - unpause
+    - update files
+    - update library
+    - update my library
+    - update the library
+    - use a different
+    - use a new
+    - volume
+    - volume.down
+    - volume.mute
+    - volume.up
+- regex: episode_number
+  examples: |
+    - (?<=episode\\s)\\d+(?=\\s|$)
+- regex: helpRequest
+  examples: |
+    - help
+    - how do you work
+    - what are your commands
+    - what are your triggers
+    - what can you do
+- regex: infoRequests
+  examples: |
+    - What is on tv
+    - What's on
+    - What's on TV
+    - just added
+    - new
+    - on deck
+    - ondeck
+    - recent
+    - what am I watching
+    - what are we watching
+    - what is currently playing
+    - what is playing
+    - what's playing
+    - when does
+    - when is
+- regex: mediaTypes
+  examples: |
+    - Song
+    - Track
+    - album
+    - artist
+    - band
+    - cd
+    - composer
+    - disc
+    - episode
+    - film
+    - films
+    - flick
+    - flicks
+    - group
+    - movie
+    - movies
+    - music
+    - performer
+    - playlist
+    - record
+    - season
+    - series
+    - show
+    - show.episode
+    - show.season
+    - shows
+    - singer
+    - song
+    - track
+    - tv shows
+    - vinyl
+- regex: playControls
+  examples: |
+    - I feel like listening to
+    - I feel like watching
+    - I want to hear
+    - I want to listen to
+    - I want to watch
+    - download
+    - fetch
+    - grab
+    - haven't watched
+    - listen to
+    - pirate
+    - play
+    - play a random
+    - random
+    - randomize
+    - shuffle
+    - snag
+    - start
+    - throw on
+    - turn on
+    - unwatched
+    - watch
+- regex: request
+  examples: |
+    - (?<=download\\s).*?(?=$)
+    - (?<=fetch\\s).*?(?=$)
+    - (?<=grab\\s).*?(?=$)
+    - (?<=play\\s).*?(?=\\s(on the)|(in the))
+    - (?<=put\\s).*?(?=\\s(on the)|(in the))
+    - (?<=throw\\s).*?(?=\\s(on the)|(in the))
+    - (?<=watch\\s).*?(?=\\s(on the)|(in the))
+- regex: season
+  examples: |
+    - (?<=season\\s)\\d+(?=\\s|$)
+- regex: timeModifier
+  examples: |
+    - new
+    - restart
+    - that just aired
+    - the beginning
+    - the latest
+    - the most recent
+    - the new
+    - the newest
+    - the start

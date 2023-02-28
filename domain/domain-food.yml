@@ -1,0 +1,31 @@
+version: "3.1"
+
+config:
+  store_entities_as_slots: true
+entities:
+  - ingredient
+intents:
+  - fetchInfo.Recipe
+  - fetchInfo.Recipe.fromIngredient
+responses:
+  utter.Recipe:
+    - text: "I recommend you cook up {recipe_name}"
+  utter_recipe_followup:
+    - text: "Ok what kind of recipe?"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+slots:
+  ingredient:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ingredient
+        intent:
+          - fetchInfo.Recipe
+          - fetchInfo.Recipe.fromIngredient
+        not_intent:
+          - playMedia
+          - control.Media

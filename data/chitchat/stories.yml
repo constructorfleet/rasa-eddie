@@ -1,0 +1,27 @@
+version: '3.1'
+
+stories:
+- story: Ultimate question
+  steps:
+    - intent: fetchInfo.ultimateAnswer
+    - action: utter.Chitchat.ultimateAnswer
+    - intent: fetchInfo.ultimateQuestion
+    - action: utter.Chitchat.ultimateQuestion
+- story: Default Welcome Intent
+  steps:
+    - intent: Default Welcome Intent
+    - action: action.input_welcome
+- story: Greetings
+  steps:
+    - intent: greet
+    - action: utter.Chitchat.greet
+- story: Goodbye
+  steps:
+    - intent: bye
+    - action: utter.Chitchat.bye
+- story: Generic Help Request
+  steps:
+    - intent: helpRequest
+      entities:
+        - helpRequest: ''
+    - action: action.helpRequest

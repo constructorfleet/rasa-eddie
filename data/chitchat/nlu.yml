@@ -1,0 +1,191 @@
+version: "3.1"
+
+nlu:
+- intent: fetchInfo.ultimateAnswer
+  examples: |
+    - What is the meaning of life?
+    - What is the meaning of life, the universe, and everything?
+    - What is the ultimate answer?
+    - Ultimate answer
+    - What does the universe mean?
+    - What is the meaning of life?
+    - What is the purpose
+    - How many roads must a man walk down?
+- intent: fetchInfo.ultimateQuestion
+  examples: |
+    - But what is the question?
+    - Ultimate question
+    - What is the question to life the universe and everything?
+    - If that is the answer what is the question?
+- intent: bye
+  examples: |
+    - leaving goodbye
+    - have to go chau
+    - leaving chau
+    - talk to you later bye
+    - im leaving now
+    - talk to you later adieu
+    - im leaving now gtg
+    - have to go bye
+    - im leaving now adios
+    - talk to you soon goodbye
+    - ttyl
+    - thanks ttyl
+    - adieu thank you
+    - heading out chau
+    - talk to you later adios
+    - thanks adios
+    - goodbye thank you
+    - bye thanks
+    - going out
+    - have to go farewell
+    - goodbye
+    - chao thank you
+    - gtg thanks
+    - talk to you later gtg
+    - heading out gtg
+    - going out ttyl
+    - going out adios
+    - im leaving now farewell
+    - leaving bye
+    - going out chau
+    - im leaving now bye
+    - chau thanks
+    - leaving
+    - talk to you later chao
+    - chau
+    - got to go ttyl
+    - going out gtg
+    - heading out adios
+    - chao thanks
+    - leaving chao
+- intent: greet
+  examples: |
+    - hey good night
+    - greetings how are you doing
+    - hello morning how is it going
+    - hi good day are you around?
+    - hi whats up
+    - hello good day whatsup
+    - hey good afternoon
+    - hey good night how are you
+    - hi good night how are you
+    - hey good afternoon how are things going
+    - hi good afternoon are you there
+    - good morning how are you doing
+    - hello are you around?
+    - good day how is it going
+    - hey good day how are you
+    - hello whatsup
+    - hi
+    - hello are you around
+    - hey are you around
+    - hello morning are you there
+    - hey
+    - hello greetings how are you
+    - hey sup
+    - hi are you around?
+    - hello good morning how is it going
+    - hello good afternoon
+    - hi morning are you around
+    - good afternoon how are you doing
+    - hello good afternoon are you around?
+    - hi good afternoon are you around?
+    - hello are you there
+    - hi morning are you around?
+    - hey morning are you there
+    - hi good morning whats up
+    - good afternoon whats up
+    - good night are you around?
+    - good afternoon sup
+    - hello good afternoon whatsup
+    - hi good afternoon whatsup
+    - hello
+- intent: helpRequest
+  examples: |
+    - [what can you do](helpRequest)
+    - [what are your commands](helpRequest)
+    - [Help](helpRequest)
+    - I need [assistance](helpRequest)
+    - [What can you do]{"entity": "helpRequest", "value": "help"}?
+    - [I need something](helpRequest)
+- intent: Fetch-no
+  examples: |
+    - not interested
+    - definitely not
+    - I don't want that
+    - don't do it
+    - I disagree
+    - not really
+    - no
+    - thanks but no
+    - I don't think so
+- intent: Fetch - yes
+  examples: |
+    - exactly
+    - confirm
+    - that's correct
+    - yes
+    - do it
+    - I agree
+    - of course
+    - sounds good
+    - sure
+    - I don't mind
+    - ok
+    - okay
+- intent: Default Fallback Intent
+  examples: |
+    - FIRE
+- synonym: help
+  examples: |
+    - what are your triggers
+    - what are your commands
+    - assistance
+    - I need something
+    - what can you do
+- synonym: 'true'
+  examples: |
+    - yes, please
+    - please do
+    - please
+    - you got it
+    - do it
+    - you bet
+    - sure
+    - ok
+    - yes
+- synonym: 'false'
+  examples: |
+    - nevermind
+    - no thanks
+    - no
+    - no way
+    - never
+    - fuck you
+- regex: helpRequest
+  examples: |
+    - help
+    - how do you work
+    - what are your commands
+    - what are your triggers
+    - what can you do
+- regex: yesno
+  examples: |
+    - do it
+    - false
+    - fuck you
+    - never
+    - nevermind
+    - no
+    - no thanks
+    - no way
+    - ok
+    - please
+    - please do
+    - sure
+    - true
+    - yes
+    - yes, please
+    - you bet
+    - you got it

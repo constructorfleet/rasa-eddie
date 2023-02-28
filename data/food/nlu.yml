@@ -1,0 +1,23 @@
+version: "3.1"
+
+nlu:
+- intent: fetchInfo.Recipe
+  examples: |
+    - Can i have a recipe?
+    - Please give me a recipe
+    - I would love a recipe
+    - Is there a recipe you would like to recommend?
+    - What can I make with [chicken](ingredient)
+    - I have [pork](ingredient) what recipe should I uses?
+    - Give me some [pasta](ingredient) recipes
+    - What can I do with [potatoes](ingredient)?
+- intent: fetchInfo.Recipe.fromIngredient
+  examples: |
+    - Some sort of [pasta](ingredient)
+    - A meal with [fish](ingredient)
+    - Some type of [chicken](ingredient)
+    - Any [turkey](ingredient)
+    - Maybe [beef](ingredient)
+    - Something with [pork](ingredient)
+    - A small [salad](ingredient)
+    - Any type of [rice](ingredient)

@@ -1,0 +1,83 @@
+version: "3.1"
+
+actions:
+  - action.helpRequest
+  - utter_helpRequest
+config:
+  store_entities_as_slots: true
+entities:
+  - helpRequest
+  - yesno
+  - no
+  - yes
+intents:
+  - Default Fallback Intent:
+      use_entities: true
+  - Default Welcome Intent:
+      use_entities: true
+  - fetchInfo.ultimateAnswer
+  - fetchInfo.ultimateQuestion
+  - helpRequest:
+      use_entities: true
+  - greet
+  - bye
+responses:
+  utter.Chitchat.ultimateAnswer:
+    - text: "I belive it is 42"
+    - text: "42"
+    - text: "42 obviously"
+  utter.Chitchat.ultimateQuestion:
+    - text: "If we knew that, the answer wouldn't make sense"
+    - text: "It's believed that if we know the question, the answer would change"
+    - text: "Go read the books!"
+  utter.Chitchat.greet:
+    - text: Well hello there!
+    - text: Hello to you!
+    - text: Hey!
+    - text: I'm kind of busy, let's get on with it
+  utter.Chitchat.bye:
+    - text: Now I can get back to more important things
+    - text: Bye for now
+    - text: I guess you're done with me
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+slots:
+  helpRequest:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: helpRequest
+        intents:
+          - helpRequests
+        not_intents:
+          - control.Media
+          - playMedia
+          - fetch.Media
+  yesno:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: yesno
+  DefaultWelcomeIntent-followup:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  yes:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  no:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom

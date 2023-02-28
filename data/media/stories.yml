@@ -1,0 +1,102 @@
+version: '3.1'
+
+stories:
+- story: Recommend a movie
+  steps:
+  - intent: provideInfo.moviePreference
+  - action: utter_recommend_similar
+- story: Multiple Media Requests With Followup
+  steps:
+    - intent: Media.multipleResults
+      entities:
+        - playMedia-followup: '1'
+    - action: action.playMedia
+- story: Multiple Media Results
+  steps:
+    - intent: Media.multipleResults
+    - action: action.playMedia
+- story: Do Not Play Or Fetch
+  steps:
+    - intent: Fetch-no
+      entities:
+        - no: '1'
+        - playMedia-followup: '1'
+        - fetchInfo-followup: '1'
+    - action: action.playMedia
+- story: Do Not Fetch
+  steps:
+    - intent: Fetch-no
+    - action: action.playMedia
+- story: Fetch Media To Play Or Info
+  steps:
+    - intent: Fetch - yes
+      entities:
+        - yes: '1'
+        - playMedia-followup: '1'
+        - fetchInfo-followup: '1'
+    - action: action.playMedia
+- story: Fetch Media
+  steps:
+    - intent: Fetch - yes
+      entities:
+        - controls: playMedia.fetch
+        - request: ''
+    - action: action.playMedia
+- story: Change Media Device
+  steps:
+    - intent: control.Media
+      entities:
+        - Devices: ''
+        - controls: change
+    - slot_was_set:
+        - controls: change
+    - action: action.control.Media
+- story: Generic Control Media
+  steps:
+    - intent: control.Media
+    - action: action.control.Media
+- story: Fetch Media Info
+  steps:
+    - intent: fetchInfo.Media
+    - action: action.fetchInfo.Media
+- story: Play Media Video
+  steps:
+    - intent: playMedia
+      entities:
+        - controls: playMedia.video
+        - request: ''
+        - Devices: ''
+    - slot_was_set:
+        - controls: playMedia.video
+    - slot_was_set:
+        - request: filled
+    - slot_was_set:
+        - Devices: filled
+    - action: action.playMedia
+- story: Default Fallback Intent
+  steps:
+    - intent: Default Fallback Intent
+    - action: action.input_unknown
+- story: Play Media
+  steps:
+    - intent: playMedia
+      entities:
+        - controls: playMedia
+        - request: ''
+        - Devices: ''
+    - slot_was_set:
+        - controls: playMedia
+    - slot_was_set:
+        - request: filled
+    - slot_was_set:
+        - Devices: filled
+    - action: action.playMedia
+    - action: utter_playMedia
+- story: Top Media Query
+  steps:
+    - intent: fetchInfo.topMedia
+    - action: utter_top_media
+- story: Fetching Media
+  steps:
+    - intent: fetch.Media
+    - action: utter_fetching_media

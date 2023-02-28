@@ -1,0 +1,362 @@
+version: "3.1"
+
+actions:
+  - action.control.Media
+  - action.fetchInfo.Media
+  - action.helpRequest
+  - action.input_unknown
+  - action.input_welcome
+  - action.playMedia
+  - utter_controlMedia
+  - utter_fetchInfo
+  - utter_fetchInfo_fetchInfo_custom
+  - utter_playMedia
+config:
+  store_entities_as_slots: true
+entities:
+  - Devices
+  - duration
+  - music-artist
+  - language
+  - infoRequests
+  - topic
+  - date
+  - year
+  - ordinal
+  - mod
+  - DeviceType
+  - controls
+  - media
+  - given-name
+  - percentage
+  - request
+  - last-name
+  - type
+  - time-period
+  - playMedia-followup
+  - fetchInfo-followup
+  - season
+  - episode_number
+  - Media-multiple
+  - movie
+  - genre
+  - number
+intents:
+  - Fetch - yes:
+      use_entities: true
+  - Fetch-no:
+      use_entities: true
+  - Media.multipleResults:
+      use_entities: true
+  - control.Media:
+      use_entities:
+        - Devices
+        - controls
+  - fetchInfo.Media:
+      use_entities:
+        - topic
+  - fetchInfo.topMedia:
+      use_entities: true
+  - fetchInfo-MediaSelect:
+      use_entities: true
+  - fetch.Media:
+      use_entities:
+        - request
+        - controls
+  - playMedia:
+      use_entities:
+        - request
+        - Devices
+        - controls
+  - provideInfo.moviePreference:
+      use_entities:
+        - movie
+        - genre
+responses:
+  utter_fetching_media:
+    - text: "That is queued up!"
+    - text: "Pirating it now."
+  utter_recommend_similar:
+    - text: "Here's some titles that might be similar to {movie}:"
+  utter_top_media:
+    - text: "Here's what I found:"
+  utter_playMedia:
+    - text: Ok, {request} is now playing on the {Devices}
+    - text: '{request} coming right up.'
+    - text: You got it.
+    - text: Now screening on the {Devices}, {request}
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+slots:
+  genre:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: genre
+        intent:
+          - provideInfo.moviePreference
+        not_intent:
+          - playMedia
+          - control.Media
+  movie:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: movie
+        intent:
+          - provideInfo.moviePreference
+        not_intent:
+          - playMedia
+          - fetch.Media
+          - control.Media
+  topic:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: topic
+        intent:
+          - fetchInfo.Media
+        not_intent:
+          - playmedia
+          - fetch.Media
+          - helprequets
+          - control.Media
+  season:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: seaon
+        intents:
+          - playMedia
+          - fetch.Media
+          - fetchInfo.Media
+        not_intent:
+          - control.Media
+          - helpRequests
+  episode_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: episode_number
+        intent:
+          - playMedia
+          - fetch.Media
+          - fetchInfo.Media
+        not_intent:
+          - control.Media
+          - helpRequests
+  Devices:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: Devices
+        intent:
+          - playMedia
+          - fetch.Media
+          - control.Media
+        not_intent:
+          - fetchInfo.Media
+          - helpRequests
+  duration:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: duration
+  music-artist:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: music-artist
+  language:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: language
+        intent:
+          - control.Media
+        not_intent:
+          - playMedia
+          - fetch.Media
+          - fetchInfo.Media
+  infoRequests:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: infoRequests
+        intents:
+          - fetchInfo.Media
+  date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date
+  year:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: year
+        not_intent:
+          - playMedia
+          - fetch.Media
+  ordinal:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ordinal
+        not_intent:
+          - playMedia
+          - fetch.Media
+  mod:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: mod
+        not_intent:
+          - playMedia
+          - fetch.Media
+  DeviceType:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: DeviceType
+  controls:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: controls
+        intent:
+          - playMedia
+          - fetch.Media
+          - control.Media
+        not_intent:
+          - fetchInfo.Media
+          - helpRequets
+  media:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: media
+  given-name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: given-name
+        not_intent:
+          - playMedia
+          - fetch.Media
+        intents: null
+  percentage:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: percentage
+        not_intent:
+          - playMedia
+          - fetch.Media
+  request:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: request
+  last-name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: last-name
+        not_intent:
+          - playMedia
+          - fetch.Media
+  type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: type
+  time-period:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: time-period
+        not_intent: playMedia
+  MediamultipleResults-followup:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  Media-multiple:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  fetchInfo-followup:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  play:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  playMedia-followup:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
+  requested_slot:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: custom
