@@ -3,7 +3,6 @@ version: "3.1"
 actions:
   - action.control.Media
   - action.fetchInfo.Media
-  - action.helpRequest
   - action.input_unknown
   - action.input_welcome
   - action.playMedia

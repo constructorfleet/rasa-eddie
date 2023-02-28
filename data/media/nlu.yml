@@ -305,7 +305,7 @@ nlu:
     - [put]{"entity": "controls", "value": "control.Play"} [South Park](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [mortal combat](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [gremlins](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
-    - [play]{"entity": "controls", "value": "control.Play"} [face off](request [season]{"entity": "type", "value": "show.season"} [3](season_number) [episode]{"entity": "type", "value": "show.episode"} [2](episode_number) on the [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
+    - [play]{"entity": "controls", "value": "control.Play"} [face off](request) [season]{"entity": "type", "value": "show.season"} [3](season_number) [episode]{"entity": "type", "value": "show.episode"} [2](episode_number) on the [living room apple tv]{"entity": "Devices", "value": "living_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} the [one](Devices) eyed [one](Devices) horned [movie](type) in the [game room]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} the [3 musketeers](request) on the [game room tv]{"entity": "Devices", "value": "game_room_tv"}
     - [play]{"entity": "controls", "value": "control.Play"} [season]{"entity": "type", "value": "show.season"} [4](season_number) of [breaking bad](request) in the [living room]{"entity": "Devices", "value": "living_room_tv"}
