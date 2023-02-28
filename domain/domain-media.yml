@@ -310,7 +310,7 @@ slots:
           - playMedia
           - fetch.Media
   type:
-    type: rasa.shared.core.slots.TextSlot
+    type: list
     initial_value: null
     influence_conversation: true
     mappings:
