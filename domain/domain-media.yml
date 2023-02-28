@@ -127,13 +127,13 @@ slots:
           - fetch.Media
           - helprequets
           - control.Media
-  season:
+  season_number:
     type: rasa.shared.core.slots.TextSlot
     initial_value: null
     influence_conversation: true
     mappings:
       - type: from_entity
-        entity: seaon
+        entity: season_number
         intents:
           - playMedia
           - fetch.Media
